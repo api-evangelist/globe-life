@@ -18,6 +18,10 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/globe-life
 tags:
   - Insurance
   - Life Insurance
+  - Financial-Services
+tags_raw:
+  - Insurance
+  - Life Insurance
   - Financial Services
 description: >-
   Globe Life is a major US corporation and Fortune 1000 company. The Globe Life API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
@@ -28,6 +32,10 @@ apis:
   - aid: globe-life:globe-life-api
     name: Globe Life API
     tags:
+      - Insurance
+      - Life Insurance
+      - Financial-Services
+    tags_raw:
       - Insurance
       - Life Insurance
       - Financial Services
