@@ -2,6 +2,7 @@ aid: globe-life
 url: https://raw.githubusercontent.com/api-evangelist/globe-life/refs/heads/main/apis.yml
 name: Globe Life
 type: Index
+position: Producing
 deliveryModel:
   model: unknown
   open_source: false
@@ -30,41 +31,116 @@ tags:
   - Insurance
   - Life Insurance
   - Financial-Services
+  - Supplemental Health
+  - Medicare Supplement
+  - Insurance Carrier
+  - Fortune 1000
 tags_raw:
   - Insurance
   - Life Insurance
   - Financial Services
+  - Supplemental Health
+  - Medicare Supplement
+  - Insurance Carrier
+  - Fortune 1000
 description: >-
-  Globe Life is a major US corporation and Fortune 1000 company. The Globe Life API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+  Globe Life Inc. (NYSE: GL) is a McKinney, Texas insurance holding company and Fortune 1000
+  constituent. Its wholly owned subsidiaries — Globe Life And Accident Insurance Company,
+  American Income Life, Globe Life Liberty National Division, United American and Family
+  Heritage — sell individual life, accident, supplemental health and Medicare Supplement
+  policies direct to consumers and through captive and independent agents. Globe Life's public
+  digital surface is entirely consumer- and agent-facing: quote tools, the myaccount
+  policyholder portal, an agent locator, the eProvider remittance portal and a mobile app. As
+  of the 2026-09-14 probe Globe Life publishes no developer portal, no API reference and no
+  machine-readable contract of any kind; partner and distributor integrations are governed by
+  bilateral carrier agreements rather than by a public developer program.
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-14'
 specificationVersion: '0.23'
-apis:
-  - aid: globe-life:globe-life-api
-    name: Globe Life API
-    tags:
-      - Insurance
-      - Life Insurance
-      - Financial-Services
-    tags_raw:
-      - Insurance
-      - Life Insurance
-      - Financial Services
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.globelifeinsurance.com
-    humanURL: https://developer.globelifeinsurance.com
-    properties:
-      - url: https://developer.globelifeinsurance.com/docs
-        type: Documentation
-    description: >-
-      The Globe Life API provides access to platform services and data for enterprise integration and automation.
+apis: []
 common:
-  - type: DomainSecurity
-    url: security/globe-life-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/globelife
+  - type: Wikipedia
+    url: https://en.wikipedia.org/wiki/Globe_Life
+  - type: StockExchange
+    url: https://www.nyse.com/quote/XNYS:GL
   - type: Website
     url: https://www.globelifeinsurance.com
+  - type: About
+    url: https://home.globelifeinsurance.com/about
+  - type: Support
+    url: https://home.globelifeinsurance.com/customer-service
+  - type: FAQ
+    url: https://home.globelifeinsurance.com/faq
+  - type: Newsroom
+    url: https://home.globelifeinsurance.com/press-releases
+  - type: Careers
+    url: https://careers.globelifeinsurance.com/
+  - type: InvestorRelations
+    url: https://investors.globelifeinsurance.com/
+  - type: PrivacyPolicy
+    url: https://home.globelifeinsurance.com/privacy-policy
+  - type: TermsOfService
+    url: https://home.globelifeinsurance.com/terms
+  - type: GitHubOrganization
+    url: https://github.com/Globe-Life
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/globelife
+  - type: DomainSecurity
+    url: security/globe-life-domain-security.yml
+  - type: Plans
+    url: plans/globe-life-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/globe-life-rate-limits.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-14'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Globe Life runs consumer and agent web products (home.globelifeinsurance.com, the
+    myaccount Vite SPA, the ln./agency.ailife.com agent locators, the eProvider remittance
+    portal) but ships no developer program at all — /developers, /api, /pricing, /status and
+    /changelog are hard 404s on the live host, every RFC 8615 well-known path missed on all
+    eleven hosts probed, and the api. and developer. subdomains this profile previously
+    recorded as its API base and portal are wildcard DNS with no service behind them, answering
+    a generic 466-byte HTTP 500 on every path including /docs and /openapi.json.
+  evidence:
+    - url: https://home.globelifeinsurance.com/
+      status: 200
+    - url: https://home.globelifeinsurance.com/developers
+      status: 404
+    - url: https://home.globelifeinsurance.com/api
+      status: 404
+    - url: https://home.globelifeinsurance.com/openapi.json
+      status: 404
+    - url: https://home.globelifeinsurance.com/swagger.json
+      status: 404
+    - url: https://home.globelifeinsurance.com/llms.txt
+      status: 404
+    - url: https://home.globelifeinsurance.com/.well-known/agent-card.json
+      status: 404
+    - url: https://home.globelifeinsurance.com/.well-known/agent.json
+      status: 404
+    - url: https://home.globelifeinsurance.com/.well-known/api-catalog
+      status: 404
+    - url: https://home.globelifeinsurance.com/.well-known/security.txt
+      status: 404
+    - url: https://home.globelifeinsurance.com/zz-api-evangelist-control-9f3a
+      status: 404
+    - url: https://developer.globelifeinsurance.com/docs
+      status: 500
+    - url: https://api.globelifeinsurance.com/openapi.json
+      status: 500
+    - url: https://myaccount.globelifeinsurance.com/zz-api-evangelist-control-9f3a
+      status: 200
+    - url: https://www.ailife.com/openapi.json
+      status: 404
+    - url: https://eprovider.globelifeinc.com/.well-known/api-catalog
+      status: 404
+  checked: '2026-09-14'

@@ -4,63 +4,46 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Globe Life
 providerId: globe-life
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-14'
+generated: '2026-09-14'
+method: searched
+source: https://home.globelifeinsurance.com/life-insurance
+reconciled: true
 tags:
   - Insurance
   - Life Insurance
   - Financial Services
-description: Globe Life is a life and supplemental health insurance carrier. Its product surface is policyholder-facing
-  (life, accident, supplemental health policies) rather than a developer API. No public developer API
-  or pricing tier exists; agent / partner integrations are governed by carrier-distributor agreements.
-notes: Reconcile only if Globe Life launches a public developer API with posted pricing.
+plan_count: 0
+plans: []
+description: >-
+  Globe Life publishes NO API plans, because it publishes no API. The company is a life,
+  accident and supplemental health carrier whose priced products are consumer insurance
+  policies, and even those carry no posted price — every product page routes to a
+  quote/underwriting flow keyed on age, coverage amount, term and state. There is no
+  developer pricing page, no tier table, and no metered or subscription API product of any
+  kind. Partner and distributor economics (commission schedules, quote/bind access) are set
+  in bilateral carrier-distributor agreements and are not published.
+note: >-
+  This artifact previously listed two entries — a consumer "Insurance Policy" plan and an
+  "Agent / Partner Integration" plan — written by the 2026-05-04 bulk sweep. Neither is an
+  API plan, and carrying them made plan_count read 2 for a company that has published zero
+  API plans. They have been removed and plan_count is now an explicit, measured 0. An honest
+  zero is the finding; it is not a gap in the probe.
+probes:
+  - url: https://home.globelifeinsurance.com/pricing
+    status: 404
+  - url: https://home.globelifeinsurance.com/developers
+    status: 404
+  - url: https://home.globelifeinsurance.com/api
+    status: 404
+  - url: https://home.globelifeinsurance.com/life-insurance
+    status: 200
+    note: product page; quote-driven, no posted price
 sources:
-  - https://www.globelifeinsurance.com/
   - https://home.globelifeinsurance.com/
-plans:
-  - id: globe-life-policy
-    name: Insurance Policy (Consumer Product)
-    type: usage-based
-    description: Consumer-facing insurance policy — life, accident, or supplemental health. Premiums
-      depend on age, coverage amount, term, and underwriting; not an API plan.
-    entries:
-      - label: Monthly premium
-        name: premium
-        type: metered
-        metric: policy-month
-        limit: -1
-        timeFrame: month
-        geo: US
-        unit: 1
-        price: see Globe Life quote tool
-        userMultiplied: false
-    elements:
-      - name: Term life policies
-      - name: Whole life policies
-      - name: Accident and supplemental health
-      - name: Children's life policies
-  - id: globe-life-partner
-    name: Agent / Partner Integration
-    type: enterprise
-    description: Field-agent and partner-distributor integrations governed by carrier-distributor agreement.
-      Not a self-service API.
-    entries:
-      - label: Partner contract
-        name: partner_contract
-        type: subscription
-        metric: contract
-        limit: -1
-        timeFrame: year
-        geo: US
-        unit: 1
-        price: per partner agreement
-        userMultiplied: false
-    elements:
-      - name: Quote and bind workflows
-      - name: Commission payout integration
+  - https://home.globelifeinsurance.com/life-insurance
+  - https://home.globelifeinsurance.com/supplemental-health-insurance
+reconcile_when: Globe Life launches a public developer API with posted pricing.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

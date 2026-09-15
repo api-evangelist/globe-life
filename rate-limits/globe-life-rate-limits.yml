@@ -4,30 +4,50 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Globe Life
 providerId: globe-life
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-14'
+generated: '2026-09-14'
+method: searched
+source: https://home.globelifeinsurance.com/
+reconciled: true
 tags:
   - Rate Limiting
   - Insurance
   - Life Insurance
-description: Globe Life does not publish a public API rate-limit policy. Any partner integration limits
-  are governed by carrier-distributor agreements.
-notes: No public API surface to reconcile against.
-sources:
-  - https://www.globelifeinsurance.com/
-responseCodes:
-  throttled: 429
-limits:
-  - name: Partner-agreement limit
-    scope: contract
-    metric: varies
-    limit: see partner agreement
+limit_count: 0
+limits: []
+headers:
+  request: []
+  response: []
+  note: >-
+    No rate-limit response headers are documented, because no API reference exists to
+    document them in. There is no X-RateLimit-*, RateLimit-*, or Retry-After contract, and no
+    documented status code for exhaustion.
+exhaustion_status: null
+description: >-
+  Globe Life publishes no API and therefore no rate-limit policy. Any throttling that applies
+  to a partner or distributor integration is set in the bilateral carrier-distributor
+  agreement, which is not public.
+note: >-
+  This artifact previously carried one limits[] entry ("Partner-agreement limit", value "see
+  partner agreement") written by the 2026-05-04 bulk sweep, which made limit_count read 1 for
+  a provider that has published zero limits. It has been removed and limit_count is now an
+  explicit, measured 0. No RateLimits credit should follow from this file — it records an
+  absence.
+probes:
+  - url: https://home.globelifeinsurance.com/developers
+    status: 404
+  - url: https://home.globelifeinsurance.com/api
+    status: 404
+  - url: https://developer.globelifeinsurance.com/docs
+    status: 500
+    note: wildcard DNS, no service
 policies:
   - name: Bilateral terms
-    description: Throttling and quotas are governed by the partner-distributor agreement.
+    description: >-
+      Any quota or throttle is governed by the partner-distributor agreement, not by a
+      published policy.
+sources:
+  - https://home.globelifeinsurance.com/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

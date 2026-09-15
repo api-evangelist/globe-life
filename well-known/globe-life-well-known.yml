@@ -1,0 +1,293 @@
+generated: '2026-09-14'
+method: probed
+source: >-
+  Direct HTTPS probes of the RFC 8615 named path list against every host this record knows —
+  the registrable domain and www, the corporate domain globelifeinc.com, the live application
+  hosts (home, myaccount, ln, eprovider), the American Income Division hosts (ailife.com,
+  agency.ailife.com), and the two hosts a prior round of this profile had recorded as an API
+  and developer host (api. / developer.globelifeinsurance.com).
+provider: Globe Life
+providerId: globe-life
+note: >-
+  NO POINTER IS EMITTED FOR THIS FILE. Every named /.well-known/ path missed on every host, so
+  this artifact records a measured ABSENCE, not a served surface. Two things are worth reading
+  off it. (1) *.globelifeinsurance.com carries a WILDCARD DNS record: api., developer.,
+  agents., portal. and any other label all resolve to the apex addresses and answer HTTP 500
+  from a generic "Error 500" page (466 bytes, noindex,nofollow). A subdomain that resolves and
+  answers is therefore NOT evidence of a service on this domain — it is the wildcard. That is
+  how api.globelifeinsurance.com and developer.globelifeinsurance.com came to be recorded as
+  this company's API base and developer portal in an earlier round; neither has ever served
+  anything. (2) myaccount.globelifeinsurance.com is a Vite single-page application whose
+  catch-all answers HTTP 200 with a 757-byte HTML shell for EVERY path — including a random
+  control path — so each of its 200s below is a false positive and is recorded as a miss.
+hosts:
+  - host: globelifeinsurance.com
+    note: apex; 301s every /.well-known/ path to https://home.globelifeinsurance.com/
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 301
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+        file: null
+      - path: /.well-known/api-catalog
+        status: 301
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 301
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 301
+        file: null
+      - path: /.well-known/agent.json
+        status: 301
+        file: null
+  - host: www.globelifeinsurance.com
+    note: hard 404s with a 94KB branded error page; control path returns the identical 404
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: home.globelifeinsurance.com
+    note: the real consumer site (www redirects here); hard 404s, control path 404 confirms
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: myaccount.globelifeinsurance.com
+    note: >-
+      SPA catch-all — every path, including the control path
+      /zz-api-evangelist-control-9f3a, returns 200 with the same 757-byte Vite index shell.
+      All 200s below are HTML, not documents, and are recorded as misses.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        result: miss
+        content_type: text/html
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        result: miss
+        content_type: text/html
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        result: miss
+        content_type: text/html
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        result: miss
+        content_type: text/html
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        result: miss
+        content_type: text/html
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        result: miss
+        content_type: text/html
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        result: miss
+        content_type: text/html
+  - host: ln.globelifeinsurance.com
+    note: Globe Life Liberty National Division agent locator
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: api.globelifeinsurance.com
+    note: >-
+      WILDCARD DNS, no service. Resolves to the apex addresses and returns HTTP 500 from a
+      generic 466-byte error page on every path. Recorded in a prior round as this company's
+      API base URL; it is not one, and the apis[] entry asserting it has been removed.
+    documents:
+      - path: /.well-known/security.txt
+        status: 500
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 500
+        file: null
+      - path: /.well-known/agent.json
+        status: 500
+        file: null
+      - path: /openapi.json
+        status: 500
+        file: null
+  - host: developer.globelifeinsurance.com
+    note: >-
+      WILDCARD DNS, no service — same generic 500 as api. above, including on /docs. Recorded
+      in a prior round as this company's developer portal (humanURL) and Documentation
+      pointer; both have been removed.
+    documents:
+      - path: /
+        status: 500
+        file: null
+      - path: /docs
+        status: 500
+        file: null
+      - path: /.well-known/security.txt
+        status: 500
+        file: null
+      - path: /openapi.json
+        status: 500
+        file: null
+  - host: globelifeinc.com
+    note: corporate domain; 301s every path to https://www.globelifeinsurance.com/
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        file: null
+      - path: /.well-known/api-catalog
+        status: 301
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 301
+        file: null
+      - path: /.well-known/agent.json
+        status: 301
+        file: null
+  - host: eprovider.globelifeinc.com
+    note: healthcare-provider remittance portal (ASP.NET); hard 404s, no discovery documents
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: www.ailife.com
+    note: >-
+      Globe Life American Income Division corporate site. SECOND FALSE-POSITIVE SHAPE worth
+      recording: this host routes the first path segment as a LOCALE, so /api-docs and /mcp
+      both return HTTP 200 with the 42,895-byte American Income Life homepage and a literal
+      `<html lang="api">` root element. Neither is a contract; both are the marketing home
+      page under a bogus language code. /.well-known/* is not caught by that router and 404s
+      normally.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: agency.ailife.com
+    note: Globe Life American Income Division agent locator
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+summary:
+  hosts_probed: 11
+  documents_served: 0
+  security_txt: false
+  api_catalog: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  ai_plugin: false
+  agent_card: false
+  pointer_emitted: false
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
