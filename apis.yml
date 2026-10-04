@@ -30,7 +30,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/globe-life
 tags:
   - Insurance
   - Life Insurance
-  - Financial-Services
+  - Financial Services
   - Supplemental Health
   - Medicare Supplement
   - Insurance Carrier
@@ -43,6 +43,7 @@ tags_raw:
   - Medicare Supplement
   - Insurance Carrier
   - Fortune 1000
+  - Financial-Services
 description: >-
   Globe Life Inc. (NYSE: GL) is a McKinney, Texas insurance holding company and Fortune 1000
   constituent. Its wholly owned subsidiaries — Globe Life And Accident Insurance Company,
