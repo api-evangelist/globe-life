@@ -56,10 +56,12 @@ description: >-
   machine-readable contract of any kind; partner and distributor integrations are governed by
   bilateral carrier agreements rather than by a public developer program.
 created: '2026-04-19'
-modified: '2026-09-14'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+  - url: https://home.globelifeinsurance.com/articles
+    type: Blog
   - type: Wikipedia
     url: https://en.wikipedia.org/wiki/Globe_Life
   - type: StockExchange
