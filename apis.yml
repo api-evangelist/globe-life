@@ -60,6 +60,8 @@ modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+  - type: FinOps
+    url: finops/globe-life-finops.yml
   - url: https://home.globelifeinsurance.com/articles
     type: Blog
   - type: Wikipedia
